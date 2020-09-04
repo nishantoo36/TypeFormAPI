@@ -31,27 +31,17 @@ public class ConfigFileReader {
 		}
 	}
 
-	public String getBrowserName() {
-		if (System.getProperty("browser") != null) {
-			return (System.getProperty("browser"));
-		}else if(properties.getProperty("browser")!=null) {
-			return properties.getProperty("browser");
+	public String getBaseURL()  {
+		if (System.getProperty("baseUrl") != null) {
+			return (System.getProperty("baseUrl"));
+		}else if(properties.getProperty("baseUrl")!=null) {
+			return properties.getProperty("baseUrl");
 		}
 		else {
-			throw new RuntimeException("browser not specified.");
+			throw new RuntimeException("baseUrl not specified.");
 		}
 	}
 
-	public String getUrl()  {
-		if (System.getProperty("url") != null) {
-			return (System.getProperty("url"));
-		}else if(properties.getProperty("url")!=null) {
-			return properties.getProperty("url");
-		}
-		else {
-			throw new RuntimeException("url not specified.");
-		}
-	}
 
 	public String getReportConfigPath() {
 		String reportConfigPath = getValueFromPropertyFile(commonConfigFilePath, "reportConfigPath");

@@ -1,31 +1,21 @@
 package manager;
 
 
-import PageObject.CommonActions;
-import PageObject.ContactFormPage;
-import PageObject.MagazinePage;
-import org.openqa.selenium.WebDriver;
+import ActionClasses.CommonAPIAction;
+import ActionClasses.GetUserDataAPI;
+
 public class PageObjectManger {
 
-	public WebDriver driver;
-	public MagazinePage magazinePage;
-	public CommonActions commonActions;
-	public ContactFormPage contactFormPage;
+    public CommonAPIAction commonAPIAction;
+    public GetUserDataAPI getUserDataAPI;
 
+    public CommonAPIAction getCommonAPIAction() {
+        return (commonAPIAction == null) ? commonAPIAction = new CommonAPIAction() : commonAPIAction;
+    }
 
-	public PageObjectManger(WebDriver driver) {
-		this.driver = driver;
-	}
-
-	public CommonActions getCommonActionsScreen() {
-		return (commonActions == null) ? commonActions = new CommonActions(driver) : commonActions;
-	}
-	public MagazinePage getMagazineScreen() {
-		return (magazinePage == null) ? magazinePage = new MagazinePage(driver) : magazinePage;
-	}
-	public ContactFormPage getContactFormPage() {
-		return (contactFormPage == null) ? contactFormPage = new ContactFormPage(driver) : contactFormPage;
-	}
+    public GetUserDataAPI getUserDataAPI() {
+        return (getUserDataAPI == null) ? getUserDataAPI = new GetUserDataAPI() : getUserDataAPI;
+    }
 
 }
 

@@ -1,22 +1,25 @@
 package StepFiles;
-import PageObject.CommonActions;
-import cucumber.api.java.en.Given;
+import ActionClasses.CommonAPIAction;
+;
+import cucumber.api.java.en.When;
 import cucumberHelper.TestContext;
 
 public class PreconditionSteps extends Logging {
 
     TestContext testContext;
-    CommonActions commonActions;
+    CommonAPIAction commonAPIAction;
 
     public PreconditionSteps(TestContext context) {
         testContext = context;
-        commonActions = testContext.getPageObjectManger().getCommonActionsScreen();
+        commonAPIAction = testContext.getPageObjectManger().getCommonAPIAction();
     }
 
-    @Given("User should be on MagazinePage")
-    public void userShouldBeOnMagazinePage() {
-        log("test");
-        commonActions.openMainURL();
-        commonActions.setAcceptCookies();
+    @When("^user set endPoint as \"([^\"]*)\"$")
+    public void setEndPointAs(String endPoint) throws Throwable {
+        log("Set End point as "+endPoint);
+        commonAPIAction.setEndPoint(endPoint);
+        log("Endpoint settled as "+endPoint);
     }
+
+
 }
